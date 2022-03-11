@@ -23,11 +23,11 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.google.zxing</groupId>
+      <groupId>io.nuvalence.zxing</groupId>
       <artifactId>core</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.google.zxing</groupId>
+      <groupId>io.nuvalence.zxing</groupId>
       <artifactId>javase</artifactId>
     </dependency>
     <dependency>
@@ -67,7 +67,7 @@
   </dependencies>
 
   <parent>
-    <groupId>com.google.zxing</groupId>
+    <groupId>io.nuvalence.zxing</groupId>
     <artifactId>zxing-parent</artifactId>
     <version>3.5.0-SNAPSHOT</version>
   </parent>
