@@ -12,6 +12,8 @@ steps:
     args:
       - '-c'
       - |
+        git config --global user.email "NY-GCP-bot"
+        git config user.email ctavares@nuvalence.io
         mvn -B release:prepare release:perform
 timeout: 1800s
 options:
