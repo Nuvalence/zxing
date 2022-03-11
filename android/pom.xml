@@ -23,12 +23,12 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.google.zxing</groupId>
+      <groupId>io.nuvalence.zxing</groupId>
       <artifactId>core</artifactId>
       <version>3.3.3</version> <!-- fixed at the last compatible version -->
     </dependency>
     <dependency>
-      <groupId>com.google.zxing</groupId>
+      <groupId>io.nuvalence.zxing</groupId>
       <artifactId>android-core</artifactId>
     </dependency>
     <dependency>
@@ -38,7 +38,7 @@
   </dependencies>
 
   <parent>
-    <groupId>com.google.zxing</groupId>
+    <groupId>io.nuvalence.zxing</groupId>
     <artifactId>zxing-parent</artifactId>
     <version>3.5.0-SNAPSHOT</version>
   </parent>
