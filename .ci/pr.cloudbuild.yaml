@@ -5,7 +5,7 @@ steps:
     args:
       - '-c'
       - |
-        mvn -nsu -B --no-transfer-progress install
+        mvn -nsu -B --no-transfer-progress install -DskipTests
   # - id: 'Publish snapshots'
   #   name: 'maven:3.8.3-jdk-11'
   #   entrypoint: /bin/bash
@@ -21,8 +21,7 @@ steps:
       - |
         git config --global user.email "NY-GCP-bot"
         git config user.email ctavares@nuvalence.io
-        git config --global --unset credential.helper
-        git config --global --add --path credential.helper gcloud
+        git config credential.'https://source.developers.google.com'.helper gcloud.sh
         mvn -B release:prepare release:perform
 timeout: 1800s
 options:
