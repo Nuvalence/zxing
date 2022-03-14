@@ -35,8 +35,10 @@ steps:
       - |
         git config --global user.email "NY-GCP-bot"
         git config user.email ctavares@nuvalence.io
-        git config credential.'https://source.developers.google.com'.helper gcloud.sh
         mvn -B release:prepare release:perform
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
 timeout: 1800s
 options:
   pool:
