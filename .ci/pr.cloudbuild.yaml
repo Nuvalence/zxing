@@ -40,6 +40,12 @@ steps:
       - name: 'ssh'
         path: /root/.ssh
 timeout: 1800s
+availableSecrets:
+  secretManager:
+  - versionName: projects/$PROJECT_ID/secrets/github-ssh-key-bot/versions/latest
+    env: 'SSH_KEY'
+  - versionName: projects/$PROJECT_ID/secrets/github-ssh-key-public-bot/versions/latest
+    env: 'PUBLIC_SSH_KEY'
 options:
   pool:
     name: 'projects/$PROJECT_ID/locations/us-east4/workerPools/dmv-private-pool'
