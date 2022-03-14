@@ -18,7 +18,12 @@ steps:
     args:
       - '-c'
       - |
-        mvn -nsu -B --no-transfer-progress install -DskipTests
+        git config --global user.email "NY-GCP-bot"
+        git config user.email ctavares@nuvalence.io
+        mvn -nsu -B --no-transfer-progress install -DskipTests release:prepare release:perform
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
   # - id: 'Publish snapshots'
   #   name: 'maven:3.8.3-jdk-11'
   #   entrypoint: /bin/bash
@@ -26,19 +31,18 @@ steps:
   #     - '-c'
   #     - |
   #       mvn -B deploy
-
-  - id: 'Prepare and publish release'
-    name: 'gcr.io/cloud-builders/mvn'
-    entrypoint: /bin/bash
-    args:
-      - '-c'
-      - |
-        git config --global user.email "NY-GCP-bot"
-        git config user.email ctavares@nuvalence.io
-        mvn -B release:prepare release:perform
-    volumes:
-      - name: 'ssh'
-        path: /root/.ssh
+  # - id: 'Prepare and publish release'
+  #   name: 'gcr.io/cloud-builders/mvn'
+  #   entrypoint: /bin/bash
+  #   args:
+  #     - '-c'
+  #     - |
+  #       git config --global user.email "NY-GCP-bot"
+  #       git config user.email ctavares@nuvalence.io
+  #       mvn -B release:prepare release:perform
+  #   volumes:
+  #     - name: 'ssh'
+  #       path: /root/.ssh
 timeout: 1800s
 availableSecrets:
   secretManager:
