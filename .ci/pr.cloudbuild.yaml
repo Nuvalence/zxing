@@ -6,13 +6,22 @@ steps:
       - '-c'
       - |
         mvn -nsu -B --no-transfer-progress install
-  - id: 'Publish snapshots'
-    name: 'maven:3.8.3-jdk-11'
+  # - id: 'Publish snapshots'
+  #   name: 'maven:3.8.3-jdk-11'
+  #   entrypoint: /bin/bash
+  #   args:
+  #     - '-c'
+  #     - |
+  #       mvn -B deploy
+  - id: 'Prepare and publish release'
+    name: 'gcr.io/cloud-builders/mvn'
     entrypoint: /bin/bash
     args:
       - '-c'
       - |
-        mvn -B deploy
+        git config --global user.email "NY-GCP-bot"
+        git config user.email ctavares@nuvalence.io
+        mvn -B release:prepare release:perform
 timeout: 1800s
 options:
   pool:

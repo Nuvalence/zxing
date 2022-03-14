@@ -7,7 +7,7 @@ steps:
       - |
         mvn -nsu -B --no-transfer-progress install
   - id: 'Prepare and publish release'
-    name: 'maven:3.8.3-jdk-11'
+    name: 'gcr.io/cloud-builders/mvn'
     entrypoint: /bin/bash
     args:
       - '-c'
