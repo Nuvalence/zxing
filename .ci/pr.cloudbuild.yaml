@@ -6,13 +6,6 @@ steps:
       - '-c'
       - |
         mvn -nsu -B --no-transfer-progress install
-  - id: 'Publish snapshots'
-    name: 'maven:3.8.3-jdk-11'
-    entrypoint: /bin/bash
-    args:
-      - '-c'
-      - |
-        mvn -B deploy
 timeout: 1800s
 options:
   pool:
