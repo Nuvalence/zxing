@@ -20,7 +20,7 @@ steps:
       - |
         git config --global user.email "NY-GCP-bot"
         git config user.email ctavares@nuvalence.io
-        mvn -nsu -B --no-transfer-progress install -DskipTests release:prepare release:perform
+        mvn -nsu -B --no-transfer-progress install -DskipTests release:prepare release:perform -X
     volumes:
       - name: 'ssh'
         path: /root/.ssh
