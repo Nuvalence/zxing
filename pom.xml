@@ -646,7 +646,7 @@
   </mailingLists>
   <scm>
     <connection>scm:git:https://github.com/Nuvalence/zxing.git</connection>
-    <developerConnection>scm:git:https://github.com/Nuvalence/zxing.git</developerConnection>
+    <developerConnection>scm:git:ssh://git@github.com/Nuvalence/zxing.git</developerConnection>
     <url>https://github.com/Nuvalence/zxing</url>
     <tag>HEAD</tag>
   </scm>

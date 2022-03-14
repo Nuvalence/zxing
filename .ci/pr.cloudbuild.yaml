@@ -1,4 +1,17 @@
 steps:
+  - id: 'GitHub and CloudBuild Authentication'
+    name: 'gcr.io/cloud-builders/git'
+    secretEnv: ['SSH_KEY', 'PUBLIC_SSH_KEY']
+    entrypoint: 'bash'
+    args:
+      - -c
+      - |
+        echo "$$SSH_KEY" >> /root/.ssh/id_rsa
+        chmod 400 /root/.ssh/id_rsa
+        echo "$$PUBLIC_SSH_KEY" >> /root/.ssh/known_hosts
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
   - id: 'Test and Build the app'
     name: 'maven:3.8.3-jdk-11'
     entrypoint: /bin/bash
